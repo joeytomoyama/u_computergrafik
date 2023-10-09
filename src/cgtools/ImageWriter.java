@@ -59,6 +59,7 @@ public class ImageWriter {
     File file = new File(filename);
     file.getParentFile().mkdirs();
     ImageIO.write(image, "png", file);
+    System.out.println("Wrote PNG image file: " + filename);
   }
 
   private static double clamp(double v) {

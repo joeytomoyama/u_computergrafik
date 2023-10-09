@@ -18,7 +18,7 @@ public class Image {
   }
 
   private void notYetImplemented() {
-    System.err.println("Please complete the implementation of class cgg.Image as part of assignment 1.");
+    System.err.println("\nPlease complete the implementation of class cgg.Image as part of assignment 1.\n");
     System.exit(1);
   }
 }
