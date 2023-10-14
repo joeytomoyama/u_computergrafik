@@ -4,21 +4,26 @@ package cgg;
 import cgtools.*;
 
 public class Image {
+
+  private int width;
+  private int height;
+  private double[] pixels;
+
   public Image(int width, int height) {
-    notYetImplemented();
+    this.width = width;
+    this.height = height;
+    this.pixels = new double[3 * width * height];
   }
 
   public void setPixel(int x, int y, Color color) {
-    notYetImplemented();
+    if (x > this.width) throw new IllegalArgumentException();
+    if (y > this.height) throw new IllegalArgumentException();
+    this.pixels[3 * (this.width * y + x) + 0] = color.r();
+    this.pixels[3 * (this.width * y + x) + 1] = color.g();
+    this.pixels[3 * (this.width * y + x) + 2] = color.b();
   }
 
   public void write(String filename) {
-    // Use cggtools.ImageWriter.write() to implement this.
-    notYetImplemented();
-  }
-
-  private void notYetImplemented() {
-    System.err.println("\nPlease complete the implementation of class cgg.Image as part of assignment 1.\n");
-    System.exit(1);
+    ImageWriter.write(filename, this.pixels, this.width, this.height);
   }
 }
