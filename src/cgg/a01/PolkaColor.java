@@ -6,10 +6,10 @@ import java.util.List;
 
 import cgtools.*;
 
-record PolkaColor(Color color, int width, int height, int amount, float radius) implements Sampler {
+record PolkaColor(Color color, int width, int height, int amount, float radius, float margin) implements Sampler {
   
   public Color getColor(double x, double y) {
-    float diameter = radius * 2;
+    float diameter = (radius + margin) * 2;
 
     int colAmount = (int) Math.floor(width / diameter);
     int rowAmount = amount / colAmount + 1;
@@ -25,7 +25,7 @@ record PolkaColor(Color color, int width, int height, int amount, float radius) 
     }
 
     for (Point point : pointList) {
-      if (point.distance2d(new Point(x, y, 0)) < radius) {
+      if (point.distance2d(new Point(x, y, 0)) < radius - margin) {
         return color;
       }
     }

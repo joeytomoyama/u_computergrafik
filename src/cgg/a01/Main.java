@@ -62,7 +62,7 @@ public class Main {
     var height = 270;
 
     // Defines the contents of the image.
-    var content = new PolkaColor(red, width, height, 20, 16);
+    var content = new PolkaColor(red, width, height, 48, 16, 2);
 
     // Creates an image and iterates over all pixel positions inside the image.
     var image = new Image(width, height);
