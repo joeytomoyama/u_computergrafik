@@ -8,6 +8,13 @@ import static cgtools.Vector.*;
 // for details on the record data type.
 public record Point(double x, double y, double z) {
 
+  public double distance2d(Point point) {
+    return Math.sqrt(
+      (x - point.x()) * (x - point.x())
+    + (y - point.y()) * (y - point.y())
+    );
+  }
+
   @Override
   public String toString() {
     return String.format("(Pnt: %.2f %.2f %.2f)", x, y, z);
