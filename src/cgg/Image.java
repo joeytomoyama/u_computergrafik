@@ -23,6 +23,10 @@ public class Image {
     this.pixels[3 * (this.width * y + x) + 2] = color.b();
   }
 
+  public void sample() {
+    //TODO
+  }
+
   public void write(String filename) {
     ImageWriter.write(filename, this.pixels, this.width, this.height);
   }
