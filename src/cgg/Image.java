@@ -16,15 +16,19 @@ public class Image {
   }
 
   public void setPixel(int x, int y, Color color) {
-    if (x > this.width) throw new IllegalArgumentException();
-    if (y > this.height) throw new IllegalArgumentException();
+    if (x > this.width || y > this.height) throw new IllegalArgumentException();
     this.pixels[3 * (this.width * y + x) + 0] = color.r();
     this.pixels[3 * (this.width * y + x) + 1] = color.g();
     this.pixels[3 * (this.width * y + x) + 2] = color.b();
   }
 
-  public void sample() {
-    //TODO
+  public void sample(Sampler content) {
+    for (int x = 0; x != this.width; x++) {
+      for (int y = 0; y != this.height; y++) {
+        // Sets the color for one particular pixel.
+        this.setPixel(x, y, content.getColor(x, y));
+      }
+    }
   }
 
   public void write(String filename) {

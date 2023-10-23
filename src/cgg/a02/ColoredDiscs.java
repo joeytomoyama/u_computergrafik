@@ -3,7 +3,6 @@ package cgg.a02;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import cgtools.*;
 
@@ -24,7 +23,7 @@ class ColoredDiscs implements Sampler {
 			));
 		}
 
-		this.discs = this.discs.stream().sorted((disc1, disc2) -> {
+		this.discs.sort((disc1, disc2) -> {
 			if (disc1.radius() > disc2.radius()) {
 				return 1;
 			} else if (disc1.radius() < disc2.radius()) {
@@ -32,8 +31,7 @@ class ColoredDiscs implements Sampler {
 			} else {
 				return 0;
 			}
-		})
-		.collect(Collectors.toList());
+		});
 	}
   
 	// Returns the color for the given position.
