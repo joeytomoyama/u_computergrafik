@@ -35,8 +35,8 @@ public class ImageWriter {
   private static void write(String filename, double[] data, int width, int height, boolean linear) throws IOException {
     // setup an sRGB image with 16-bit components of the right size.
     int cs = ColorSpace.CS_sRGB;
-    if (linear)
-      cs = ColorSpace.CS_LINEAR_RGB;
+    if (linear) cs = ColorSpace.CS_LINEAR_RGB;
+
     ComponentColorModel ccm = new ComponentColorModel(ColorSpace.getInstance(cs), false, false,
         ComponentColorModel.OPAQUE, DataBuffer.TYPE_USHORT);
 
@@ -46,8 +46,8 @@ public class ImageWriter {
     for (int y = 0; y != height; y++) {
       for (int x = 0; x != width; x++) {
         int i = (width * y + x) * 3;
-        int[] rgb = { (int) (clamp(data[i + 0]) * 65535.0), (int) (clamp(data[i + 1]) * 65535.0),
-            (int) (clamp(data[i + 2]) * 65535.0) };
+        int[] rgb = { (int) (gammaCorrect(data[i + 0]) * 65535.0), (int) (gammaCorrect(data[i + 1]) * 65535.0),
+            (int) (gammaCorrect(data[i + 2]) * 65535.0) };
         raster.setPixel(x, y, rgb);
       }
     }
@@ -64,5 +64,13 @@ public class ImageWriter {
 
   private static double clamp(double v) {
     return Math.min(Math.max(0, v), 1);
+  }
+
+  private static double gammaCorrect(double v) {
+    return clamp(Math.pow(v, 1.0 / 2.2));
+  }
+
+  private static double gammaCorrect(double v, float gammaValue) {
+    return clamp(Math.pow(v, 1.0 / gammaValue));
   }
 }
