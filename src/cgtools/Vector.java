@@ -207,6 +207,13 @@ public final class Vector {
     return multiply(hsv.b(), add(multiply(hsv.g(), subtract(hue(hsv.r()), white)), white));
   }
 
+  public static Color shade(Direction normal, Color color) {
+    Direction lightDir = normalize(direction(1, 1, 0.5));
+    Color ambient = multiply(0.1, color);
+    Color diffuse = multiply(0.9 * Math.max(0, dotProduct(lightDir, normal)), color);
+    return add(ambient, diffuse);
+  }
+
   public static final Point zero = point(0, 0, 0);
   public static final Direction xAxis = direction(1, 0, 0);
   public static final Direction yAxis = direction(0, 1, 0);

@@ -13,7 +13,13 @@ public class Camera {
         this.height = height;
     }
 
-    public Ray generateRay(int x, int y) {
+    /**
+     * generates Ray towards specific direction.
+     * @param x
+     * @param y
+     * @return
+     */
+    public Ray generateRay(double x, double y) {
         Direction direction = new Direction(
             x - this.width / 2,
             -1 * (y - this.height / 2),

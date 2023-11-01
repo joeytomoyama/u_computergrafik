@@ -25,6 +25,11 @@ public class Image {
     this.pixels[3 * (this.width * y + x) + 2] = color.b();
   }
 
+  /**
+   * The Color of each pixel of the image is determined based on the {@link Sampler}.
+   * @param content Sampler.
+   * @param sampleRate how often each pixel is observed, used for anti-aliasing.
+   */
   public void sample(Sampler content, int sampleRate) {
     int count = 0;
     for (int x = 0; x != this.width; x++) {

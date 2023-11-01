@@ -1,10 +1,13 @@
 /** @author henrik.tramberend@beuth-hochschule.de */
 package cgg.a03;
 
+import java.util.Arrays;
+import java.util.List;
+
+import cgg.Image;
 import cgtools.Camera;
 import cgtools.Color;
 import cgtools.Direction;
-import cgtools.Hit;
 import cgtools.Point;
 import cgtools.Ray;
 import cgtools.shapes.Sphere;
@@ -18,8 +21,8 @@ public class Main {
     int height = 270;
     
     // cameraTest(width, height);
-    sphereTest(width, height);
-    // spheres(width, height);
+    // sphereTest(width, height);
+    spheres(width, height);
 
     System.out.println("done");
   }
@@ -43,8 +46,6 @@ public class Main {
     Sphere sphere4 = new Sphere(new Point(0, 0, -2), 1, new Color(1, 0, 0));
     Sphere sphere5 = new Sphere(new Point(0, 0, -4), 1, new Color(1, 0, 0));
 
-    Hit hit1 = sphere1.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 0, -1), 0, Double.POSITIVE_INFINITY));
-
     System.out.println(sphere1.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 0, -1), 0, Double.POSITIVE_INFINITY)));
     System.out.println(sphere2.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 1, -1), 0, Double.POSITIVE_INFINITY)));
     System.out.println(sphere3.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 0, -1), 0, Double.POSITIVE_INFINITY)));
@@ -55,17 +56,24 @@ public class Main {
   public static void spheres(int width, int height) {
     System.out.println("spheres");
 
-    // Camera camera = new Camera((int)(Math.PI / 2), 10, 10);
-    Camera camera = new Camera(Math.PI / 2, 10, 10);
+    Camera camera = new Camera(Math.PI / 2, width, height);
 
-    // // Defines the contents of the image.
-    // var content = new ColoredDiscs(500, 480, 270);
+    List<Sphere> spheres = Arrays.asList(
+      new Sphere(new Point(0, 0, -9), 1, new Color(0, 0, 1)),
+      new Sphere(new Point(3, 0, -9), 1, new Color(0, 1, 0)),
+      new Sphere(new Point(6, 0, -9), 1, new Color(1, 0, 0)),
+      new Sphere(new Point(-3, 0, -9), 1, new Color(1, 0, 1)),
+      new Sphere(new Point(-6, 0, -9), 1, new Color(0, 1, 1))
+    );
 
-    // // Creates an image and iterates over all pixel positions inside the image.
-    // var image = new Image(width, height);
-    // image.sample(content, 1);
+    // Defines the contents of the image.
+    var content = new RaytraceColor(camera, spheres, width, height);
+
+    // Creates an image and iterates over all pixel positions inside the image.
+    var image = new Image(width, height);
+    image.sample(content, 100);
     
-    // // Writes the image to disk.
-    // image.write("doc/a03-spheres.png");
+    // Writes the image to disk.
+    image.write("doc/a03-spheres.png");
   }
 }

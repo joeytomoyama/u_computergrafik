@@ -1,5 +1,8 @@
 package cgtools;
 
-public record Hit(double t, Point x, Direction n, Color c) {
+/**
+ * Holds information about a Hit, for example: Ray hitting Sphere.
+ */
+public record Hit(double t, Point origin, Direction normal, Color color) {
     
 }
