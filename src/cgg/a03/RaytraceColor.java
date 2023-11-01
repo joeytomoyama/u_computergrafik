@@ -1,5 +1,5 @@
 /** @author henrik.tramberend@beuth-hochschule.de */
-package cgg.a02;
+package cgg.a03;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,13 @@ import cgtools.*;
 import cgtools.shapes.Disc;
 
 // Represents the contents of an image. Provides the same color for all pixels.
-class ColoredDiscs implements Sampler {
+class RaytraceColor implements Sampler {
 
 	// private int amount;
 	private List<Disc> discs;
 	private final Color NO_HIT = new Color(0, 0, 0);
 
-	public ColoredDiscs(int amount, int width, int height) {
+	public RaytraceColor(int amount, int width, int height) {
 		this.discs = new ArrayList<>(amount);
 		for (int i = 0; i < amount; i++) {
 			this.discs.add(new Disc(

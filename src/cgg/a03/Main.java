@@ -2,6 +2,12 @@
 package cgg.a03;
 
 import cgtools.Camera;
+import cgtools.Color;
+import cgtools.Direction;
+import cgtools.Hit;
+import cgtools.Point;
+import cgtools.Ray;
+import cgtools.shapes.Sphere;
 
 public class Main {
 
@@ -11,9 +17,39 @@ public class Main {
     int width = 480;
     int height = 270;
     
-    spheres(width, height);
+    // cameraTest(width, height);
+    sphereTest(width, height);
+    // spheres(width, height);
 
     System.out.println("done");
+  }
+
+  public static void cameraTest(int width, int height) {
+    System.out.println("cameraTest");
+
+    Camera camera = new Camera(Math.PI / 2, 10, 10);
+    
+    System.out.println(camera.generateRay(0, 0));
+    System.out.println(camera.generateRay(5, 5));
+    System.out.println(camera.generateRay(10, 10));
+  }
+
+  public static void sphereTest(int width, int height) {
+    System.out.println("cameraTest");
+
+    Sphere sphere1 = new Sphere(new Point(0, 0, -2), 1, new Color(1, 0, 0));
+    Sphere sphere2 = new Sphere(new Point(0, 0, -2), 1, new Color(1, 0, 0));
+    Sphere sphere3 = new Sphere(new Point(0, -1, -2), 1, new Color(1, 0, 0));
+    Sphere sphere4 = new Sphere(new Point(0, 0, -2), 1, new Color(1, 0, 0));
+    Sphere sphere5 = new Sphere(new Point(0, 0, -4), 1, new Color(1, 0, 0));
+
+    Hit hit1 = sphere1.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 0, -1), 0, Double.POSITIVE_INFINITY));
+
+    System.out.println(sphere1.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 0, -1), 0, Double.POSITIVE_INFINITY)));
+    System.out.println(sphere2.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 1, -1), 0, Double.POSITIVE_INFINITY)));
+    System.out.println(sphere3.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 0, -1), 0, Double.POSITIVE_INFINITY)));
+    System.out.println(sphere4.intersect(new Ray(new Point(0, 0, -4), new Direction(0, 0, -1), 0, Double.POSITIVE_INFINITY)));
+    System.out.println(sphere5.intersect(new Ray(new Point(0, 0, 0), new Direction(0, 0, -1), 0, 2)));
   }
 
   public static void spheres(int width, int height) {
@@ -21,10 +57,6 @@ public class Main {
 
     // Camera camera = new Camera((int)(Math.PI / 2), 10, 10);
     Camera camera = new Camera(Math.PI / 2, 10, 10);
-    
-    System.out.println(camera.generateRay(0, 0));
-    System.out.println(camera.generateRay(5, 5));
-    System.out.println(camera.generateRay(10, 10));
 
     // // Defines the contents of the image.
     // var content = new ColoredDiscs(500, 480, 270);

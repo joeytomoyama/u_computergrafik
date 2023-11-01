@@ -1,4 +1,4 @@
-package cgg.a02;
+package cgtools.shapes;
 
 import cgtools.Color;
 import cgtools.Point;
@@ -6,7 +6,7 @@ import cgtools.Util;
 
 public record Disc(Point position, double radius, Color color) {
     
-    boolean isPointInDisc(Point point) {
+    public boolean isPointInDisc(Point point) {
         return position.distance2d(point) < radius;
     }
 

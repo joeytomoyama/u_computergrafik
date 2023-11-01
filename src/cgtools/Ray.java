@@ -3,6 +3,7 @@ package cgtools;
 public record Ray(Point origin, Direction direction, double min, double max) {
     
     public Point pointAt(double t) {
+        if (!isValid(t)) return null;
         return Vector.add(origin, Vector.multiply(direction, t));
     }
 
