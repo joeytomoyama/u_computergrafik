@@ -35,14 +35,13 @@ public class Main {
 
     Camera camera = new Camera(Math.PI / 3, width, height);
 
-    Shape background = new Background(new Color(1, 0, 1));
-    // Shape ground = new Disc3d(new Point(0.0, -0.5, 0.0), new Direction(0, 1, 0), 10, new Color(1, 1, 0));
-    Shape ground = new Disc3d(new Point(0.0, -0.5, -2.5), new Direction(0, 0, 1), 10, new Color(1, 1, 0));
+    Shape background = new Background(new Color(0.2, 0.2, 0.2));
+    Shape ground = new Disc3d(new Point(0.0, -0.5, 0.0), new Direction(0, 1, 0), 1000, new Color(0.6, 0.6, 0.6));
     Shape globe1 = new Sphere(new Point(-1.0, -0.25, -2.5), 0.7, new Color(1, 0, 0));
     Shape globe2 = new Sphere(new Point(0.0, -0.25, -2.5), 0.5, new Color(0, 1, 0));
     Shape globe3 = new Sphere(new Point(1.0, -0.25, -2.5), 0.7, new Color(0, 0, 1));
 
-    Group group = new Group(Arrays.asList(background, ground));
+    Group group = new Group(Arrays.asList(background, ground, globe1, globe2, globe3));
 
     // Defines the contents of the image.
     Sampler content = new Raytracer(camera, group);

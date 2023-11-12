@@ -32,7 +32,7 @@ public record Disc3d(Point anker, Direction normal, double radius, Color color) 
         // make sure dist3d is a disc and not an infinite plane
         Point hitPosition = ray.pointAt(t);
         if (hitPosition == null) return null;
-        if (radius != 0 && Vector.length(Vector.subtract(anker, hitPosition)) < radius)
+        if (radius != 0 && Vector.length(Vector.subtract(anker, hitPosition)) > radius)
             return null;
 
         return new Hit(t, hitPosition, normal, color);
