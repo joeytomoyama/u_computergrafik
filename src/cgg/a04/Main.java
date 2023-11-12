@@ -2,14 +2,12 @@
 package cgg.a04;
 
 import java.util.Arrays;
-import java.util.List;
 
 import cgg.Image;
 import cgtools.Camera;
 import cgtools.Color;
 import cgtools.Direction;
 import cgtools.Point;
-import cgtools.Ray;
 import cgtools.Sampler;
 import cgtools.shapes.Background;
 import cgtools.shapes.Shape;

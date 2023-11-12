@@ -11,16 +11,6 @@ public record Disc3d(Point anker, Direction normal, double radius, Color color) 
 
     @Override
     public Hit intersect(Ray ray) {
-        // double t = (Vector.dotProduct(Vector.subtract(anker, ray.origin()), normal) / Vector.dotProduct(ray.direction(), normal));
-        // if (t < ray.tmin() || t > ray.tmax()) {
-        //     return null;
-        // }
-        // Point hitPoint = ray.pointAt(t);
-        // if (Vector.length(Vector.subtract(hitPoint, anker)) > 1) {
-        //     return null;
-        // }
-        // return new Hit(t, hitPoint, normal, new Color(0, 0, 0));
-
         double dividend = Vector.dotProduct(
             Vector.subtract(ray.origin(), anker), 
             normal
