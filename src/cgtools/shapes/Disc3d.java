@@ -16,14 +16,14 @@ public record Disc3d(Point anker, Direction normal, double radius, Color color) 
             normal
         );
         double divisor = Vector.dotProduct(ray.direction(), normal);
-        if (divisor == 0) return null; // ray and disc3d are parallel to each other.
+        if (divisor == 0) return null; // if the ray is perpendicular to the disc's normal
         double t = dividend / divisor;
 
         // make sure dist3d is a disc and not an infinite plane
         Point hitPosition = ray.pointAt(t);
         if (hitPosition == null) return null;
-        if (radius != 0 && Vector.length(Vector.subtract(anker, hitPosition)) > radius)
-            return null;
+        // if (radius != 0 && Vector.length(Vector.subtract(anker, hitPosition)) > radius)
+        //     return null;
 
         return new Hit(t, hitPosition, normal, color);
     }
