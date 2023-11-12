@@ -1,6 +1,6 @@
 package cgtools;
 
-public record Ray(Point origin, Direction direction, double min, double max) {
+public record Ray(Point origin, Direction direction, double tmin, double tmax) {
     
     /**
      * Returns the point on the ray at a value t.
@@ -18,6 +18,6 @@ public record Ray(Point origin, Direction direction, double min, double max) {
      * @return
      */
     public boolean isValid(double t) {
-        return (min < t && t < max) ? true : false;
+        return (tmin < t && t < tmax) ? true : false;
     }
 }

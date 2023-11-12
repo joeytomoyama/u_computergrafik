@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cgtools.*;
-import cgtools.shapes.Disc;
+import cgtools.shapes.Disc2d;
 
 // Represents the contents of an image. Provides the same color for all pixels.
 class ColoredDiscs implements Sampler {
 
 	// private int amount;
-	private List<Disc> discs;
+	private List<Disc2d> discs;
 	private final Color NO_HIT = new Color(0, 0, 0);
 
 	public ColoredDiscs(int amount, int width, int height) {
 		this.discs = new ArrayList<>(amount);
 		for (int i = 0; i < amount; i++) {
-			this.discs.add(new Disc(
+			this.discs.add(new Disc2d(
 				new Point(Math.random() * width, Math.random() * height, 0),
 				Math.random() * 50,
 				new Color(Math.random(), Math.random(), Math.random())
@@ -37,7 +37,7 @@ class ColoredDiscs implements Sampler {
   
 	// Returns the color for the given position.
 	public Color getColor(double x, double y) {
-		for(Disc disc : discs) {
+		for(Disc2d disc : discs) {
 			if (disc.isPointInDisc(new Point(x, y, 0))) {
 				return disc.color();
 			}
