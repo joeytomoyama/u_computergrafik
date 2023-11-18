@@ -12,7 +12,7 @@ import cgtools.Sampler;
 import cgtools.shapes.Background;
 import cgtools.shapes.Shape;
 import cgtools.shapes.Sphere;
-import cgtools.shapes.Disc3d;
+import cgtools.shapes.Disc;
 import cgtools.shapes.Group;
 
 public class Main {
@@ -33,16 +33,21 @@ public class Main {
 
     Camera camera = new Camera(Math.PI / 3, width, height);
 
-    Shape background = new Background(new Color(0.2, 0.2, 0.2));
-    Shape ground = new Disc3d(new Point(0.0, 0.5, 0.0), new Direction(0, 1, 0), 10, new Color(0.6, 0.6, 0.6));
-    // Shape ground = new Disc3d(new Point(0.0, -0.3, -5), new Direction(0, 1, 0), 50, new Color(1, 0, 0));
-    Shape globe1 = new Sphere(new Point(-1.0, -0.25, -2.5), 0.7, new Color(1, 0, 0));
-    Shape globe2 = new Sphere(new Point(0.0, -0.25, -2.5), 0.5, new Color(0, 1, 0));
-    Shape globe3 = new Sphere(new Point(1.0, -0.25, -2.5), 0.7, new Color(0, 0, 1));
+    Shape background = new Background(new Color(0, 0, 0));
+
+    Shape ground1 = new Disc(new Point(-1.3, 1, -5), new Direction(0.2, 1, 0.4), 0, new Color(1, 0.2, 0.2));
+    Shape ground2 = new Disc(new Point(0.0, -0.25, -2.5), new Direction(0.1, -0.7, -1.2), 0.5, new Color(0.2, 1, 0.2));
+    Shape ground3 = new Disc(new Point(0.5, -0.25, -1.5), new Direction(0.8, 0.2, 0.2), 0.7, new Color(0.2, 0.2, 1));
+
+    Shape globe1 = new Sphere(new Point(-1.3, 1, -5), 0.5, new Color(1, 0, 0));
+    Shape globe2 = new Sphere(new Point(0.0, -0.25, -2.5), 0.4, new Color(0, 1, 0));
+    Shape globe3 = new Sphere(new Point(0.5, -0.25, -1.5), 0.4, new Color(0, 0, 1));
 
     Group group = new Group(Arrays.asList(
       background,
-      ground,
+      ground1,
+      ground2,
+      ground3,
       globe1,
       globe2,
       globe3
