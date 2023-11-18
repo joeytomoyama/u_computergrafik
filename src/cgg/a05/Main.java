@@ -1,5 +1,5 @@
 /** @author henrik.tramberend@beuth-hochschule.de */
-package cgg.a04;
+package cgg.a05;
 
 import java.util.Arrays;
 
