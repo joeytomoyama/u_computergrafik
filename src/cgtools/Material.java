@@ -1,8 +1,10 @@
 package cgtools;
 
+import cgg.a05.Hit;
+
 public interface Material {
     
-    public double emission(Hit hit);
-    public double albedo(Hit hit);
-    public Ray scatteredRay(Hit hit);
+    public Color emission();
+    public Color albedo();
+    public Ray scatteredRay(Ray ray, Hit hit);
 }

@@ -32,10 +32,11 @@ public class Image {
    */
   public void sample(Sampler content, int sampleRate) {
     int count = 0;
+    // go through each pixel
     for (int x = 0; x != this.width; x++) {
       for (int y = 0; y != this.height; y++) {
-        // Sets the color for one particular pixel.
-        double[] colorSum = {0, 0, 0};
+        double[] colorSum = {0, 0, 0}; // Sets the color for one particular pixel.
+        // take multiple samples for anti-aliasing
         for (double i = 0; i < sampleRate; i++) {
           for (double j = 0; j < sampleRate; j++) {
             double randX = Random.random();
@@ -56,8 +57,9 @@ public class Image {
         count++;
       }
 
+      // prints progress to console.
       System.out.println(
-        String.format("%.0f%% done",
+        String.format("%.0f%%",
         (float) count / (this.width * this.height) * 100)
       );
     }

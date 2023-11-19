@@ -28,7 +28,7 @@ public record Disc(Point anker, Direction normal, double radius, Color color) im
         if (divisor == 0) return null; // if the ray is perpendicular to the disc's normal
         double t = dividend / divisor;
 
-        // make sure dist3d is a disc and not an infinite plane
+        // make sure Disc is a disc and not an infinite plane
         Point hitPosition = ray.pointAt(t);
         if (hitPosition == null) return null;
         if (radius != 0 && Vector.length(Vector.subtract(anker, hitPosition)) > radius) return null;
