@@ -1,9 +1,9 @@
-package cgtools.shapes;
+package cgtools_deprecated.shapes;
 
 import java.util.List;
 
-import cgtools.Hit;
-import cgtools.Ray;
+import cgtools_deprecated.Hit;
+import cgtools_deprecated.Ray;
 
 public record Group(List<Shape> shapes) implements Shape {
 

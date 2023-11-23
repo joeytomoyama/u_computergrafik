@@ -1,8 +1,8 @@
-package cgg.a05;
+package cgg.a05_2022;
 
-import cgtools.Point;
-import cgtools.Direction;
-import cgtools.Material;
+import cgtools_deprecated.Direction;
+import cgtools_deprecated.Material;
+import cgtools_deprecated.Point;
 
 /**
  * Holds information about a Hit, for example: Ray hitting Sphere.

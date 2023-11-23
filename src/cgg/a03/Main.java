@@ -4,13 +4,13 @@ package cgg.a03;
 import java.util.Arrays;
 import java.util.List;
 
-import cgg.Image;
-import cgtools.Camera;
-import cgtools.Color;
-import cgtools.Direction;
-import cgtools.Point;
-import cgtools.Ray;
-import cgtools.shapes.Sphere;
+import cgtools_deprecated.Camera;
+import cgtools_deprecated.Color;
+import cgtools_deprecated.Direction;
+import cgtools_deprecated.Image;
+import cgtools_deprecated.Point;
+import cgtools_deprecated.Ray;
+import cgtools_deprecated.shapes.Sphere;
 
 public class Main {
 

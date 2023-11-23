@@ -1,4 +1,4 @@
-package cgtools;
+package cgtools_deprecated;
 
 import cgg.a05_2022.Hit;
 

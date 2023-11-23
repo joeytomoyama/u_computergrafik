@@ -4,8 +4,8 @@ package cgg.a02;
 import java.util.ArrayList;
 import java.util.List;
 
-import cgtools.*;
-import cgtools.shapes.Disc2d;
+import cgtools_deprecated.*;
+import cgtools_deprecated.shapes.Disc2d;
 
 // Represents the contents of an image. Provides the same color for all pixels.
 class ColoredDiscs implements Sampler {

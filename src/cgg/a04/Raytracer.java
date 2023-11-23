@@ -1,12 +1,12 @@
 package cgg.a04;
 
-import cgtools.Camera;
-import cgtools.Color;
-import cgtools.Hit;
-import cgtools.Ray;
-import cgtools.Sampler;
-import cgtools.Vector;
-import cgtools.shapes.Group;
+import cgtools_deprecated.Camera;
+import cgtools_deprecated.Color;
+import cgtools_deprecated.Hit;
+import cgtools_deprecated.Ray;
+import cgtools_deprecated.Sampler;
+import cgtools_deprecated.Vector;
+import cgtools_deprecated.shapes.Group;
 
 public record Raytracer(Camera camera, Group group) implements Sampler {
     

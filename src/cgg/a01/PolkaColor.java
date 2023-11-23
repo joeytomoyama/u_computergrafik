@@ -4,7 +4,7 @@ package cgg.a01;
 import java.util.ArrayList;
 import java.util.List;
 
-import cgtools.*;
+import cgtools_deprecated.*;
 
 record PolkaColor(Color color, int width, int height, int amount, float radius, float margin) implements Sampler {
   

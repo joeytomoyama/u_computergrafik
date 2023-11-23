@@ -1,10 +1,5 @@
 /** @author henrik.tramberend@beuth-hochschule.de */
-package cgg;
-
-import cgtools.ImageWriter;
-import cgtools.Random;
-import cgtools.Color;
-import cgtools.Sampler;
+package cgtools_deprecated;
 
 public class Image {
 

@@ -1,7 +1,7 @@
 /** @author henrik.tramberend@beuth-hochschule.de */
 package cgg.a01;
 
-import cgtools.*;
+import cgtools_deprecated.*;
 
 // Represents the contents of an image. Provides the same color for all pixels.
 record CircleColor(Color color, int width, int height, float radius) implements Sampler {

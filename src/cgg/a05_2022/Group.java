@@ -1,7 +1,8 @@
-package cgg.a05;
+package cgg.a05_2022;
 
 import java.util.List;
-import cgtools.Ray;
+
+import cgtools_deprecated.Ray;
 
 public record Group(List<Shape> shapes) implements Shape {
 

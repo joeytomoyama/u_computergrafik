@@ -3,8 +3,8 @@ package cgg.a03;
 
 import java.util.List;
 
-import cgtools.*;
-import cgtools.shapes.Sphere;
+import cgtools_deprecated.*;
+import cgtools_deprecated.shapes.Sphere;
 
 // Represents the contents of an image. Provides the same color for all pixels.
 record RaytraceColor(Camera camera, List<Sphere> spheres, int width, int height) implements Sampler {

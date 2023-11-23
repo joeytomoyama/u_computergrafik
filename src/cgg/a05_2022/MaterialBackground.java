@@ -1,9 +1,9 @@
-package cgg.a05;
+package cgg.a05_2022;
 
-import cgtools.Color;
-import cgtools.Material;
-import cgtools.Ray;
-import cgtools.Vector;
+import cgtools_deprecated.Color;
+import cgtools_deprecated.Material;
+import cgtools_deprecated.Ray;
+import cgtools_deprecated.Vector;
 
 public record MaterialBackground(Color emission) implements Material {
 

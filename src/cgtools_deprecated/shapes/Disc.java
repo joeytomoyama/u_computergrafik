@@ -1,11 +1,11 @@
-package cgtools.shapes;
+package cgtools_deprecated.shapes;
 
-import cgtools.Color;
-import cgtools.Direction;
-import cgtools.Hit;
-import cgtools.Point;
-import cgtools.Ray;
-import cgtools.Vector;
+import cgtools_deprecated.Color;
+import cgtools_deprecated.Direction;
+import cgtools_deprecated.Hit;
+import cgtools_deprecated.Point;
+import cgtools_deprecated.Ray;
+import cgtools_deprecated.Vector;
 
 /**
  * A disc is a circle in 3d space. It is defined by a center point, a normal vector and a radius.

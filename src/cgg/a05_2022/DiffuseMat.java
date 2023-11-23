@@ -1,11 +1,11 @@
-package cgg.a05;
+package cgg.a05_2022;
 
-import cgtools.Color;
-import cgtools.Direction;
-import cgtools.Material;
-import cgtools.Random;
-import cgtools.Ray;
-import cgtools.Vector;
+import cgtools_deprecated.Color;
+import cgtools_deprecated.Direction;
+import cgtools_deprecated.Material;
+import cgtools_deprecated.Random;
+import cgtools_deprecated.Ray;
+import cgtools_deprecated.Vector;
 
 public record DiffuseMat(Color albedo) implements Material {
 

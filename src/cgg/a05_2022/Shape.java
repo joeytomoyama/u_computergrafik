@@ -1,6 +1,6 @@
-package cgg.a05;
+package cgg.a05_2022;
 
-import cgtools.Ray;
+import cgtools_deprecated.Ray;
 
 public interface Shape {
     

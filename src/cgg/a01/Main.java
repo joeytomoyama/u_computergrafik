@@ -1,8 +1,10 @@
 /** @author henrik.tramberend@beuth-hochschule.de */
 package cgg.a01;
 
-import static cgtools.Vector.*;
+import static cgtools_deprecated.Vector.*;
+
 import cgg.*;
+import cgtools_deprecated.Image;
 
 public class Main {
 

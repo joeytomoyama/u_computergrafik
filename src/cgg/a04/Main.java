@@ -3,17 +3,17 @@ package cgg.a04;
 
 import java.util.Arrays;
 
-import cgg.Image;
-import cgtools.Camera;
-import cgtools.Color;
-import cgtools.Direction;
-import cgtools.Point;
-import cgtools.Sampler;
-import cgtools.shapes.Background;
-import cgtools.shapes.Shape;
-import cgtools.shapes.Sphere;
-import cgtools.shapes.Disc;
-import cgtools.shapes.Group;
+import cgtools_deprecated.Camera;
+import cgtools_deprecated.Color;
+import cgtools_deprecated.Direction;
+import cgtools_deprecated.Image;
+import cgtools_deprecated.Point;
+import cgtools_deprecated.Sampler;
+import cgtools_deprecated.shapes.Background;
+import cgtools_deprecated.shapes.Disc;
+import cgtools_deprecated.shapes.Group;
+import cgtools_deprecated.shapes.Shape;
+import cgtools_deprecated.shapes.Sphere;
 
 public class Main {
 

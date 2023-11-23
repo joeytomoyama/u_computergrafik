@@ -3,14 +3,12 @@ package cgg.a05;
 
 import java.util.Arrays;
 
-import cgg.Image;
-import cgtools.Camera;
-import cgtools.Color;
-import cgtools.Direction;
-import cgtools.Point;
-import cgtools.Sampler;
-import cgtools.shapes.Background;
-import cgtools.shapes.Disc;
+// import cgg.a05_2022.DiffuseMat;
+// import cgg.a05_2022.Group;
+// import cgg.a05_2022.Shape;
+// import cgg.a05_2022.Sphere;
+import cgtools.*;
+import cgtools.shapes.*;
 
 public class Main {
 
