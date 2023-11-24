@@ -3,13 +3,12 @@ package cgtools.shapes;
 import cgtools.Color;
 import cgtools.Direction;
 import cgtools.Hit;
-import cgtools.Material;
 import cgtools.Point;
 import cgtools.Ray;
 import cgtools.Vector;
+import cgtools.materials.Material;
 
-public record Sphere(Point center, double radius, Color color) implements Shape {
-    // public record Sphere(Point center, double radius, Material material) implements Shape {
+public record Sphere(Point center, double radius, Material material) implements Shape {
 
     @Override
     public Hit intersect(Ray ray) {
@@ -36,6 +35,6 @@ public record Sphere(Point center, double radius, Color color) implements Shape 
         }
 
         Point hitPoint = ray.pointAt(t);
-        return (hitPoint == null) ? null : new Hit(t, hitPoint, Vector.divide(Vector.subtract(hitPoint, this.center), this.radius), this.color);
+        return (hitPoint == null) ? null : new Hit(t, hitPoint, Vector.divide(Vector.subtract(hitPoint, this.center), this.radius), this.material);
     }
 }

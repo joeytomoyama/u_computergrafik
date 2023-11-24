@@ -1,6 +1,8 @@
-package cgtools;
+package cgtools.materials;
 
-import cgg.a05_2022.Hit;
+import cgtools.Color;
+import cgtools.Hit;
+import cgtools.Ray;
 
 public interface Material {
     

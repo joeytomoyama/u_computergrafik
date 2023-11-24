@@ -1,0 +1,2 @@
+1. Winkel horizontal oder vertikal?
+2. zu a05, simuliert das supersampling die eig streuung bei diffusen Oberflächen?

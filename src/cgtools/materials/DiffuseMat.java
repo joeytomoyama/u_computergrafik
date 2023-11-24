@@ -1,11 +1,6 @@
-package cgg.a05_2022;
+package cgtools.materials;
 
-import cgtools_deprecated.Color;
-import cgtools_deprecated.Direction;
-import cgtools_deprecated.Material;
-import cgtools_deprecated.Random;
-import cgtools_deprecated.Ray;
-import cgtools_deprecated.Vector;
+import cgtools.*;
 
 public record DiffuseMat(Color albedo) implements Material {
 
@@ -21,9 +16,15 @@ public record DiffuseMat(Color albedo) implements Material {
 
     @Override
     public Ray scatteredRay(Ray ray, Hit hit) {
-        Direction randomDir = new Direction(Random.random(), Random.random(), Random.random());
+        Direction randomDir = new Direction(randomize(), randomize(), randomize());
         Ray nextRay = new Ray(hit.position(), Vector.normalize(Vector.add(hit.normal(), randomDir)), 0.0001, ray.tmax());
         return nextRay;
+    }
+
+    public double randomize() {
+        int offset = 1;
+        if (Random.random() > 0.5) offset = -1;
+        return offset * Random.random();
     }
     
 }
