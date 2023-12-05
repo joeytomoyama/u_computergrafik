@@ -5,16 +5,18 @@ public class Camera {
     private double fov;
     private int width;
     private int height;
+    private Matrix transformation;
     private Point position = new Point(0, 0, 0);
     
-    public Camera(double fov, int width, int height) {
+    public Camera(double fov, int width, int height, Matrix transformation) {
         this.fov = fov;
         this.width = width;
         this.height = height;
+        this.transformation = transformation;
     }
 
     /**
-     * generates Ray towards specific direction.
+     * generates Ray towards specified direction.
      * @param x
      * @param y
      * @return
@@ -26,6 +28,7 @@ public class Camera {
             -1 * ((this.width / 2) / Math.tan(this.fov / 2))
         );
         direction = Vector.normalize(direction);
-        return new Ray(position, direction, 0.1, 100);
+        // return new Ray(position, direction, 0.1, 100);
+        return new Ray(Matrix.multiply(transformation, position), Matrix.multiply(transformation, direction), 0.001, Double.POSITIVE_INFINITY);
     }
 }
