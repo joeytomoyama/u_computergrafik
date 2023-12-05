@@ -28,8 +28,6 @@ public class Main {
   public static void scene(int width, int height) {
     System.out.println("scene");
 
-    System.out.println(Matrix.rotation(Vector.yAxis, -15));
-
     Matrix viewingMatrix = Matrix.multiply(
       Matrix.rotation(Vector.yAxis, -15),
       Matrix.translation(new Direction(0, 0, 5))
