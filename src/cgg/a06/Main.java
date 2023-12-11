@@ -3,10 +3,6 @@ package cgg.a06;
 
 import java.util.Arrays;
 
-// import cgg.a05_2022.DiffuseMat;
-// import cgg.a05_2022.Group;
-// import cgg.a05_2022.Shape;
-// import cgg.a05_2022.Sphere;
 import cgtools.*;
 import cgtools.materials.DiffuseMat;
 import cgtools.materials.MaterialBackground;
@@ -29,8 +25,8 @@ public class Main {
     System.out.println("scene");
 
     Matrix viewingMatrix = Matrix.multiply(
-      Matrix.rotation(Vector.yAxis, -15),
-      Matrix.translation(new Direction(0, 0, 5))
+      Matrix.rotation(Vector.xAxis, -60),
+      Matrix.translation(new Direction(0, 2, 8))
     );
 
     Camera camera = new Camera(Math.PI / 2, width, height, viewingMatrix);
@@ -42,17 +38,15 @@ public class Main {
     Color green = new Color(0, 1, 0);
     Color blue = new Color(0, 0, 1);
 
-    // Point point1 = new Point(-1.3, 1, -5);
-    // Point point2 = new Point(0.0, -0.25, -2.5);
-    // Point point3 = new Point(0.5, -0.25, -1.5);
-
     Point point1 = new Point(-1.0, -0.25, -2.5);
     Point point2 = new Point(0.0, -0.25, -2.5);
     Point point3 = new Point(1.0, -0.25, -2.5);
+    Point point4 = new Point(1.5, 1, -2.5);
 
     Shape globe1 = new Sphere(point1, 0.7, new DiffuseMat(red));
     Shape globe2 = new Sphere(point2, 0.5, new DiffuseMat(green));
     Shape globe3 = new Sphere(point3, 0.7, new DiffuseMat(blue));
+    Shape cylinder = new Cylinder(point4, 1, 0.7, new DiffuseMat(blue));
     
     Shape ring1 = new Disc(point1, new Direction(-0.2, 1, 0.4), 0.8, new DiffuseMat(Vector.add(red, Vector.white)));
     Shape ring2 = new Disc(point2, new Direction(0.4, -0.7, -1.2), 0.6, new DiffuseMat(Vector.add(green, Vector.white)));
@@ -61,12 +55,13 @@ public class Main {
     Group scene = new Group(Arrays.asList(
       background,
       ground,
-      // ring1,
+      ring1,
       // ring2,
       // ring3,
       globe1,
-      globe2,
-      globe3
+      // globe2,
+      // globe3
+      cylinder
     ));
 
     // Defines the contents of the image.
