@@ -27,13 +27,12 @@ public record Raytracer(Camera camera, Group group) implements Sampler {
 
         // combine emission and reflection
         Ray nextRay = material.scatteredRay(ray, hit);
-        if (nextRay != null) {
-            return Vector.multiply(
-                Vector.add(material.albedo(), material.emission()),
-                radiance(nextRay, group, --depth)
-            );
-        } else {
-            return material.emission();
-        }
+        
+        if (nextRay == null) return material.emission();
+
+        return Vector.multiply(
+            Vector.add(material.albedo(), material.emission()),
+            radiance(nextRay, group, --depth)
+        );
     }
 }

@@ -2,7 +2,7 @@ package cgtools.materials;
 
 import cgtools.*;
 
-public record DiffuseMat(Color albedo) implements Material {
+public record MaterialDiffuse(Color albedo) implements Material {
 
     @Override
     public Color emission() {

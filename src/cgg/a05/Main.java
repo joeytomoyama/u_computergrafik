@@ -11,7 +11,7 @@ import cgtools.Point;
 import cgtools.Sampler;
 import cgtools.Vector;
 // import cgtools.*;
-import cgtools.materials.DiffuseMat;
+import cgtools.materials.MaterialDiffuse;
 import cgtools.materials.MaterialBackground;
 import cgtools.shapes.*;
 import cgtools.Camera;
@@ -35,7 +35,7 @@ public class Main {
     Camera camera = new Camera(Math.PI / 2, width, height, Matrix.rotation(Vector.xAxis, 0));
 
     Shape background = new Background(new MaterialBackground(new Color(0.53, 0.81, 0.92)));
-    Shape ground = new Disc(new Point(0, -0.75, 0), new Direction(0, 1, 0), 0, new DiffuseMat(new Color(0.2, 0.8, 0.1)));
+    Shape ground = new Ring(new Point(0, -0.75, 0), new Direction(0, 1, 0), 0, new MaterialDiffuse(new Color(0.2, 0.8, 0.1)));
 
     Color red = new Color(1, 0, 0);
     Color green = new Color(0, 1, 0);
@@ -49,13 +49,13 @@ public class Main {
     Point point2 = new Point(0.0, -0.25, -2.5);
     Point point3 = new Point(1.0, -0.25, -2.5);
 
-    Shape globe1 = new Sphere(point1, 0.7, new DiffuseMat(red));
-    Shape globe2 = new Sphere(point2, 0.5, new DiffuseMat(green));
-    Shape globe3 = new Sphere(point3, 0.7, new DiffuseMat(blue));
+    Shape globe1 = new Sphere(point1, 0.7, new MaterialDiffuse(red));
+    Shape globe2 = new Sphere(point2, 0.5, new MaterialDiffuse(green));
+    Shape globe3 = new Sphere(point3, 0.7, new MaterialDiffuse(blue));
     
-    Shape ring1 = new Disc(point1, new Direction(-0.2, 1, 0.4), 0.8, new DiffuseMat(Vector.add(red, Vector.white)));
-    Shape ring2 = new Disc(point2, new Direction(0.4, -0.7, -1.2), 0.6, new DiffuseMat(Vector.add(green, Vector.white)));
-    Shape ring3 = new Disc(point3, new Direction(0.8, 0.2, 0.2), 0.8, new DiffuseMat(Vector.add(blue, Vector.white)));
+    Shape ring1 = new Ring(point1, new Direction(-0.2, 1, 0.4), 0.8, new MaterialDiffuse(Vector.add(red, Vector.white)));
+    Shape ring2 = new Ring(point2, new Direction(0.4, -0.7, -1.2), 0.6, new MaterialDiffuse(Vector.add(green, Vector.white)));
+    Shape ring3 = new Ring(point3, new Direction(0.8, 0.2, 0.2), 0.8, new MaterialDiffuse(Vector.add(blue, Vector.white)));
 
     Group scene = new Group(Arrays.asList(
       background,
