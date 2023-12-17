@@ -13,7 +13,7 @@ import cgtools.shapes.*;
 public class Main {
 
 	// private static int width = 1920;
-	// private static int height = 1080;
+	// private static int height = 1080; 
 	private static int width = 960;
 	private static int height = 540;
 
