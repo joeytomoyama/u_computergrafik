@@ -18,6 +18,7 @@ public class Transformation {
      * @return local ray
      */
     public Ray transformRay(Ray ray) {
+        if (ray == null) return null;
         return new Ray(
             Matrix.multiply(fromWorld, ray.origin()),
             Matrix.multiply(fromWorld, ray.direction()),
@@ -32,6 +33,8 @@ public class Transformation {
      * @return world hit
      */
     public Hit transformHit(Hit hit) {
+        if (hit == null) return null;
+        if (hit.position() == null) return hit; // edge case: background
         return new Hit(
             hit.t(),
             Matrix.multiply(toWorld, hit.position()),

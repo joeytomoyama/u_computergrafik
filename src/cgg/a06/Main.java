@@ -38,8 +38,8 @@ public class Main {
     // Shape ground1 = new Disc(new Point(0, -4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 0.3, 0)));
     // Shape ground2 = new Disc(new Point(0, 4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(0, 0, 1)));
 
-    Shape ground1 = new Ring(new Point(0, -4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 1, 1)));
-    Shape ground2 = new Ring(new Point(0, 4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 1, 1)));
+    Shape ground1 = new Disc(new Point(0, -4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 1, 1)));
+    Shape ground2 = new Disc(new Point(0, 4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 1, 1)));
 
     Shape sun = new Sphere(new Point(0, 0, 0), 1, new MaterialBackground(new Color(1, 1, 0)));
 
@@ -69,10 +69,10 @@ public class Main {
 
     // Creates an image and iterates over all pixel positions inside the image.
     var image = new Image(width, height);
-    image.sample(content, 8);
+    image.sample2(content, 8);
     
     // Writes the image to disk.
-    image.write("doc/a06-camera.png");
+    image.write("doc/a06-cameraa.png");
   }
 
   public static List<Point> generateRandomPointsOnRings(int numRings, int numPoints, List<Shape> propList) {
@@ -102,7 +102,7 @@ public class Main {
           continue;
         }
         
-        propList.add(new Ring(Vector.zero, Vector.yAxis, ringRadius, new MaterialBackground(Vector.white)));
+        propList.add(new Ring(Vector.zero, Vector.yAxis, ringRadius, 0.05, new MaterialBackground(Vector.white)));
         points.add(i, newPoint);
     }
 

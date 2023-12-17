@@ -1,6 +1,5 @@
 package cgtools.shapes;
 
-import cgtools.Color;
 import cgtools.Direction;
 import cgtools.Hit;
 import cgtools.Point;

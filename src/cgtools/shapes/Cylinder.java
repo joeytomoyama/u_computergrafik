@@ -8,13 +8,13 @@ public record Cylinder(Point center, double height, double radius, Material mate
     @Override
     public Hit intersect(Ray ray) {
         // top and bottom cylinder caps
-        Shape top = new Ring(new Point(
+        Shape top = new Disc(new Point(
             center.x(), center.y() + height / 2, center.z()),
             Vector.yAxis,
             radius,
             material
         );
-        Shape bottom = new Ring(new Point(
+        Shape bottom = new Disc(new Point(
             center.x(), center.y() - height / 2, center.z()),
             Vector.yAxis,
             radius,
@@ -61,10 +61,10 @@ public record Cylinder(Point center, double height, double radius, Material mate
             return shortestCapHit;
         }
 
-        if (shortestCapHit != null && shortestCapHit.t() < t) {
-            System.out.println("here");
-            return shortestCapHit;
-        }
+        // if (shortestCapHit != null && shortestCapHit.t() < t) {
+        //     System.out.println("here");
+        //     return shortestCapHit;
+        // }
 
         Point hitPoint = ray.pointAt(t);
         if (hitPoint == null) return shortestCapHit;

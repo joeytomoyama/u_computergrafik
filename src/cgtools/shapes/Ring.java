@@ -7,7 +7,7 @@ import cgtools.materials.Material;
  * A disc is a circle in 3d space. It is defined by a center point, a normal vector and a radius.
  * Pass 0 as radius to make it an infinite plane.
  */
-public record Ring(Point center, Direction normal, double radius, Material material) implements Shape {
+public record Ring(Point center, Direction normal, double radius, double width, Material material) implements Shape {
 
     @Override
     /**
@@ -29,7 +29,7 @@ public record Ring(Point center, Direction normal, double radius, Material mater
         Point hitPosition = ray.pointAt(t);
         if (hitPosition == null) return null;
         if (radius != 0 && Vector.length(Vector.subtract(center, hitPosition)) > radius) return null;
-        if (radius != 0 && Vector.length(Vector.subtract(center, hitPosition)) < radius * 0.99) return null;
+        if (radius != 0 && Vector.length(Vector.subtract(center, hitPosition)) < radius - width) return null;
 
         return new Hit(t, hitPosition, normal, material);
     }

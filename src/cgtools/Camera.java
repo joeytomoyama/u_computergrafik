@@ -35,7 +35,7 @@ public class Camera {
             -1 * ((this.width / 2) / Math.tan(this.fov / 2))
         );
         direction = Vector.normalize(direction);
-        // return new Ray(position, direction, 0.1, 100);
+        
         return new Ray(Matrix.multiply(transformation, position), Matrix.multiply(transformation, direction), 0.001, Double.POSITIVE_INFINITY);
     }
 }

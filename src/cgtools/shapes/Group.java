@@ -22,6 +22,14 @@ public class Group implements Shape {
         this.transformation = transformation;
     }
 
+    public void add(Shape shape) {
+        this.shapes.add(shape);
+    }
+
+    public void addAll(List<Shape> shapes) {
+        this.shapes.addAll(shapes);
+    }
+
     @Override
     public Hit intersect(Ray ray) {
         ray = transformation.transformRay(ray);
@@ -37,6 +45,6 @@ public class Group implements Shape {
                 }
             }
         }
-        return shortestHit != null ? transformation.transformHit(shortestHit) : null;
+        return transformation.transformHit(shortestHit);
     }
 }

@@ -1,0 +1,8 @@
+old implementation: 53276ms
+2 threads: 34882ms
+3 threads: 25357ms
+4 threads: 21855ms
+5 threads: 20222ms
+6 threads: 19504ms
+7 threads: 17568ms
+8 threads: 15001ms
