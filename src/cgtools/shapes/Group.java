@@ -3,12 +3,28 @@ package cgtools.shapes;
 import java.util.List;
 
 import cgtools.Hit;
+import cgtools.Matrix;
 import cgtools.Ray;
+import cgtools.Transformation;
 
-public record Group(List<Shape> shapes) implements Shape {
+public class Group implements Shape {
+
+    private List<Shape> shapes;
+    private Transformation transformation;
+
+    public Group(List<Shape> shapes) {
+        this.shapes = shapes;
+        this.transformation = new Transformation(Matrix.identity);
+    }
+
+    public Group(List<Shape> shapes, Transformation transformation) {
+        this.shapes = shapes;
+        this.transformation = transformation;
+    }
 
     @Override
     public Hit intersect(Ray ray) {
+        ray = transformation.transformRay(ray);
         Hit shortestHit = null;
         for (Shape shape : shapes) {
             Hit hit = shape.intersect(ray);
@@ -21,7 +37,6 @@ public record Group(List<Shape> shapes) implements Shape {
                 }
             }
         }
-        return shortestHit;
+        return shortestHit != null ? transformation.transformHit(shortestHit) : null;
     }
-    
 }

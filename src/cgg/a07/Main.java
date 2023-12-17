@@ -1,5 +1,5 @@
 /** @author henrik.tramberend@beuth-hochschule.de */
-package cgg.a06;
+package cgg.a07;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,8 +15,10 @@ public class Main {
   public static void main(String[] args) {
     System.out.println("start");
 
-    int width = 960;
-    int height = 540;
+    // int width = 960;
+    // int height = 540;
+    int width = 480;
+    int height = 270;
     
     scene(width, height);
 
@@ -27,42 +29,24 @@ public class Main {
     System.out.println("scene");
 
     Matrix viewingMatrix = Matrix.multiply(
-      // Matrix.translation(new Direction(0, -1, 0)),
-      Matrix.rotation(Vector.zAxis, -10),
-      Matrix.rotation(Vector.xAxis, -20),
-      Matrix.translation(new Direction(0, 0, 10))
+      Matrix.rotation(Vector.zAxis, 0),
+      // Matrix.rotation(Vector.zAxis, -10),
+      // Matrix.rotation(Vector.xAxis, -20),
+      Matrix.translation(new Direction(0, 0, 5))
     );
     Camera camera = new Camera(Math.PI / 2, width, height, viewingMatrix);
 
     Shape background = new Background(new MaterialBackground(new Color(0.53, 0.81, 0.92)));
-    // Shape ground1 = new Disc(new Point(0, -4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 0.3, 0)));
-    // Shape ground2 = new Disc(new Point(0, 4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(0, 0, 1)));
 
-    Shape ground1 = new Ring(new Point(0, -4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 1, 1)));
-    Shape ground2 = new Ring(new Point(0, 4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 1, 1)));
-
-    Shape sun = new Sphere(new Point(0, 0, 0), 1, new MaterialBackground(new Color(1, 1, 0)));
+    Shape ground = new Ring(new Point(0, -4, 0), new Direction(0, 1, 0), 25, new MaterialBackground(new Color(1, 1, 1)));
 
     List<Shape> propList = new ArrayList<>(20);
-    // propList.add(ground1);
-    // propList.add(ground2);
-    propList.add(background);
-    propList.add(sun);
+    // propList.add(ground);
+    // propList.add(background);
+    propList.add(new Sphere(Vector.zero, 0.5, new MaterialBackground(Vector.red)));
+    // propList.add(new Sphere(Vector.zero, 0.5, new MaterialBackground(Vector.green)));
 
-    generateRandomPointsOnRings(8, 10, propList).forEach(point -> {
-      Color randomColor = new Color(Random.random(), Random.random(), Random.random());
-      double sphereRadius = Random.random() * 0.1 + 0.1;
-      propList.add(new Sphere(point, sphereRadius, new MaterialDiffuse(randomColor)));
-      propList.add(new Disc(
-        point,
-        new Direction(Random.random(), Random.random(), Random.random()),
-        sphereRadius + 0.15, 
-        new MaterialDiffuse(Vector.add(randomColor, Vector.white))
-      ));
-      propList.add(new Cylinder(point, 40, 0.01, new MaterialDiffuse(randomColor)));
-    });
-
-    Group scene = new Group(propList);
+    Group scene = new Group(propList, new Transformation(Matrix.translation(new Direction(0, 3, 0))));
 
     // Defines the contents of the image.
     Sampler content = new Raytracer(camera, scene);
@@ -72,7 +56,7 @@ public class Main {
     image.sample(content, 8);
     
     // Writes the image to disk.
-    image.write("doc/a06-camera.png");
+    image.write("doc/a07-scene.png");
   }
 
   public static List<Point> generateRandomPointsOnRings(int numRings, int numPoints, List<Shape> propList) {
@@ -107,5 +91,5 @@ public class Main {
     }
 
     return points;
-  }
+}
 }

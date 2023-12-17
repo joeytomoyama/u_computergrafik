@@ -7,6 +7,13 @@ public class Camera {
     private int height;
     private Matrix transformation;
     private Point position = new Point(0, 0, 0);
+
+    public Camera(double fov, int width, int height) {
+        this.fov = fov;
+        this.width = width;
+        this.height = height;
+        this.transformation = Matrix.identity;
+    }
     
     public Camera(double fov, int width, int height, Matrix transformation) {
         this.fov = fov;
