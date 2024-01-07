@@ -1,19 +1,20 @@
 package cgg.a10;
 
 import cgtools.Color;
+import cgtools.ImageTexture;
 import cgtools.Sampler;
 
 public class Texture implements Sampler {
 
-	private Color color;
+	private ImageTexture texture;
 
-	public Texture(Color color) {
-		this.color = color;
+	public Texture(String filename) {
+		this.texture = new ImageTexture(filename);
 	}
 
 	@Override
 	public Color getColor(double x, double y) {
-		return color;
+		return texture.getColor(x, y);
 	}
 	
 }

@@ -15,8 +15,8 @@ import cgtools.Camera;
 import cgtools.Color;
 import cgtools.Direction;
 import cgtools.Image;
-import cgtools.ImageTexture;
 import cgtools.Matrix;
+import cgtools.Point;
 import cgtools.Sampler;
 import cgtools.Vector;
 
@@ -39,22 +39,23 @@ public class Main {
 
 	public static void scene() {
 		System.out.println("scene");
-		Sampler texture = new ImageTexture("img/sky.jpg");
+		// Sampler texture = new ImageTexture("img/sky.jpg");
+		Sampler texture = new Texture("img/sky.jpg");
 		// System.out.println(texture.getColor(0.5, 0.5));
 		
 		Matrix viewingMatrix = Matrix.multiply(
 			Matrix.translation(new Direction(0, -0, 0)),
 			// Matrix.rotation(Vector.zAxis, 20),
 			// Matrix.rotation(Vector.xAxis, 20),
-			Matrix.translation(new Direction(0, 3, 10))
+			Matrix.translation(new Direction(0, 0, 10))
 		);
 		Camera camera = new Camera(Math.PI / 2, width, height, viewingMatrix);
 
 		List<Shape> sceneList = new ArrayList<>(2);
 		sceneList.add(new Background(new MaterialBackground(new Constant(Vector.white)))); // BACKGROUND
-		// sceneList.add(new Disc(Vector.zero, Vector.zAxis, 3, new MaterialDiffuse(texture)));
-		// sceneList.add(new Plane(Vector.zero, Vector.zAxis, 3, 5, new MaterialDiffuse(texture)));
+		sceneList.add(new Sphere(new Point(-2, 0, 0), 1, new MaterialDiffuse(new Constant(Vector.green))));
 		sceneList.add(new Sphere(Vector.zero, 1, new MaterialDiffuse(texture)));
+		sceneList.add(new Sphere(new Point(2, 0, 0), 1, new MaterialDiffuse(new PolkaTexture(Vector.black, Vector.red, 0.05))));
 		
 		Group scene = new Group(sceneList);//, new Transformation(Matrix.translation(new Direction(0, 0, 0))));
 
