@@ -39,9 +39,7 @@ public class Main {
 
 	public static void scene() {
 		System.out.println("scene");
-		// Sampler texture = new ImageTexture("img/sky.jpg");
 		Sampler texture = new Texture("img/sky.jpg");
-		// System.out.println(texture.getColor(0.5, 0.5));
 		
 		Matrix viewingMatrix = Matrix.multiply(
 			Matrix.translation(new Direction(0, -0, 0)),
@@ -53,7 +51,8 @@ public class Main {
 
 		List<Shape> sceneList = new ArrayList<>(2);
 		sceneList.add(new Background(new MaterialBackground(new Constant(Vector.white)))); // BACKGROUND
-		// sceneList.add(new Sphere(Vector.zero, 8, new MaterialBackground(texture)));
+		// sceneList.add(new Sphere(Vector.zero, 10, new MaterialBackground(texture)));
+		sceneList.add(new Plane(new Point(0, 0, -10), Vector.zAxis, 100, 100, new MaterialDiffuse(texture)));
 		sceneList.add(new Sphere(new Point(-2, 0, 0), 1, new MaterialDiffuse(new Constant(Vector.green))));
 		sceneList.add(new Sphere(Vector.zero, 1, new MaterialDiffuse(texture)));
 		sceneList.add(new Sphere(new Point(2, 0, 0), 1, new MaterialDiffuse(new PolkaTexture(Vector.black, Vector.red, 0.05))));
