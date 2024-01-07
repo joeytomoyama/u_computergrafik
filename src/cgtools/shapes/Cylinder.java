@@ -12,13 +12,15 @@ public record Cylinder(Point center, double height, double radius, Material mate
             center.x(), center.y() + height / 2, center.z()),
             Vector.yAxis,
             radius,
-            material
+            // material
+			new MaterialDiffuse(Vector.green)
         );
         Shape bottom = new Disc(new Point(
             center.x(), center.y() - height / 2, center.z()),
             Vector.yAxis,
             radius,
-            material
+            // material
+			new MaterialDiffuse(Vector.green)
         );
         
         // determine the shortest cap hit if any
