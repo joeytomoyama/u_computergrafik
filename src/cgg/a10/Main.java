@@ -53,6 +53,7 @@ public class Main {
 
 		List<Shape> sceneList = new ArrayList<>(2);
 		sceneList.add(new Background(new MaterialBackground(new Constant(Vector.white)))); // BACKGROUND
+		// sceneList.add(new Sphere(Vector.zero, 8, new MaterialBackground(texture)));
 		sceneList.add(new Sphere(new Point(-2, 0, 0), 1, new MaterialDiffuse(new Constant(Vector.green))));
 		sceneList.add(new Sphere(Vector.zero, 1, new MaterialDiffuse(texture)));
 		sceneList.add(new Sphere(new Point(2, 0, 0), 1, new MaterialDiffuse(new PolkaTexture(Vector.black, Vector.red, 0.05))));
@@ -67,6 +68,6 @@ public class Main {
 		image.sample(content, 4);
 		
 		// Writes the image to disk.
-		image.write("doc/a10-test.png");
+		image.write("doc/a09-panorama.png");
 	}
 }
