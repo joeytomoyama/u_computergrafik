@@ -1,13 +1,8 @@
-package cgg.a10;
+package cgg.a09test;
 
-import cgg.a10.materials.Material;
-import cgg.a10.shapes.Group;
-import cgtools.Camera;
-// import cgtools.*;
-import cgtools.Color;
-import cgtools.Ray;
-import cgtools.Sampler;
-import cgtools.Vector;
+import cgtools.*;
+import cgtools.materials.Material;
+import cgtools.shapes.*;
 
 public record Raytracer(Camera camera, Group group) implements Sampler {
     
@@ -33,10 +28,10 @@ public record Raytracer(Camera camera, Group group) implements Sampler {
         // combine emission and reflection
         Ray nextRay = material.scatteredRay(ray, hit);
         
-        if (nextRay == null) return material.emission(hit);
+        if (nextRay == null) return material.emission();
 
         return Vector.multiply(
-            Vector.add(material.albedo(hit), material.emission(hit)),
+            Vector.add(material.albedo(), material.emission()),
             radiance(nextRay, group, --depth)
         );
     }

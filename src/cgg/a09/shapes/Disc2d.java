@@ -1,4 +1,4 @@
-package cgg.a10.shapes;
+package cgg.a09.shapes;
 
 import cgtools.Color;
 import cgtools.Point;

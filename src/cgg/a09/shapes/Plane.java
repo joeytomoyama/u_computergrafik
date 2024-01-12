@@ -1,10 +1,10 @@
-package cgg.a10.shapes;
+package cgg.a09.shapes;
 
-import cgg.a10.Hit;
-import cgg.a10.materials.Material;
 import cgtools.Point;
 import cgtools.Ray;
 import cgtools.Vector;
+import cgg.a09.Hit;
+import cgg.a09.materials.Material;
 import cgtools.Direction;
 
 public record Plane(Point center, Direction direction, double width, double height, Material material) implements Shape {

@@ -1,6 +1,6 @@
-package cgg.a10.shapes;
+package cgg.a09.shapes;
 
-import cgg.a10.Hit;
+import cgg.a09.Hit;
 import cgtools.Ray;
 
 public interface Shape {

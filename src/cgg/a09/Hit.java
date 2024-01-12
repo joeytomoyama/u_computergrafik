@@ -1,6 +1,6 @@
-package cgg.a10;
+package cgg.a09;
 
-import cgg.a10.materials.Material;
+import cgg.a09.materials.Material;
 import cgtools.Direction;
 import cgtools.Point;
 

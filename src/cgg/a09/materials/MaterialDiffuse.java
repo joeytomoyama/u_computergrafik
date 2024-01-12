@@ -1,7 +1,7 @@
-package cgg.a10.materials;
+package cgg.a09.materials;
 
-import cgg.a10.Constant;
-import cgg.a10.Hit;
+import cgg.a09.Constant;
+import cgg.a09.Hit;
 import cgtools.Color;
 import cgtools.Direction;
 import cgtools.Random;

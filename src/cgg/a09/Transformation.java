@@ -1,4 +1,4 @@
-package cgg.a10;
+package cgg.a09;
 
 import cgtools.Matrix;
 import cgtools.Ray;
