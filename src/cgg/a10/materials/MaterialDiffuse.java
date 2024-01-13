@@ -1,6 +1,5 @@
 package cgg.a10.materials;
 
-import cgg.a10.Constant;
 import cgg.a10.Hit;
 import cgtools.Color;
 import cgtools.Direction;
