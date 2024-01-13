@@ -14,7 +14,7 @@ public record Raytracer(Camera camera, Group group) implements Sampler {
     public Color getColor(double x, double y) {
         Ray ray = camera.generateRay(x, y);
         
-        return radiance(ray, group, 4);
+        return radiance(ray, group, 10);
     }
 
     public Color radiance(Ray ray, Group group, int depth) {
