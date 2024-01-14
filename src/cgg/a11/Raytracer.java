@@ -33,11 +33,11 @@ public record Raytracer(Camera camera, World world) implements Sampler {
 
         // combine emission and reflection
         Ray nextRay = material.scatteredRay(ray, hit);
-        
         if (nextRay == null) return material.emission(hit);
 
-		Light light = new LightDirection(new Direction(1, 1, 0));
+		Light light = new LightDirection(new Direction(1, 1, 0)); // TODO: change to world.lights()
 
+		// calculate albedo (mirrors and glass are unaffected by artificial lights)
 		Color albedo = (hit.material().getClass() == MaterialDiffuse.class) ?
 			Vector.add(light.incomingIntensity(hit, world.group()), material.albedo(hit)) :
 			material.albedo(hit);
