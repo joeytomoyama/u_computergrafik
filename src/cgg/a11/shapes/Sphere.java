@@ -1,7 +1,7 @@
-package cgg.a10.shapes;
+package cgg.a11.shapes;
 
-import cgg.a10.Hit;
-import cgg.a10.materials.Material;
+import cgg.a11.Hit;
+import cgg.a11.materials.Material;
 import cgtools.Direction;
 import cgtools.Point;
 import cgtools.Ray;
