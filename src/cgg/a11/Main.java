@@ -51,20 +51,27 @@ public class Main {
 		);
 		Camera camera = new Camera(Math.PI / 2, width, height, viewingMatrix);
 
+		// SCENE
 		List<Shape> sceneList = new ArrayList<>(2);
 		sceneList.add(new Background(new MaterialBackground(new Constant(new Color(0.23, 0.81, 1))))); // BACKGROUND
 		// sceneList.add(new Sphere(Vector.zero, 10, new MaterialBackground(texture)));
 		// sceneList.add(new Plane(new Point(0, -1, 0), Vector.yAxis, 100, 100, new MaterialMirror(0)));
+		sceneList.add(new Plane(new Point(0, -1, 0), Vector.yAxis, 100, 100, new MaterialDiffuse(new Constant(Vector.gray))));
 		sceneList.add(new Sphere(new Point(-2, 0, 0), 1, new MaterialDiffuse(texture)));
 		// sceneList.add(new Sphere(new Point(-2, 0, 0), 1, new MaterialDiffuse(new Constant(Vector.green))));
-		// sceneList.add(new Sphere(new Point(0, 0, 0), 0.9, new MaterialMirror(0)));
+		sceneList.add(new Sphere(new Point(0, 0, 0), 0.9, new MaterialMirror(0)));
 		sceneList.add(new Sphere(new Point(2, 0, 0), 1, new MaterialDiffuse(new PolkaTexture(Vector.black, Vector.red, 0.05))));
 		// sceneList.add(new Sphere(new Point(1, 0, 2), 1.4, new MaterialGlass()));
+
+		// LIGHTS
+		List<Light> lights = new ArrayList<>();
+		lights.add(new LightDirection(new Direction(1, 1, 0)));
 		
 		Group scene = new Group(sceneList);//, new Transformation(Matrix.translation(new Direction(0, 0, 0))));
+		World world = new World(scene, lights);
 
 		// Defines the contents of the image.
-		Sampler content = new Raytracer(camera, scene);
+		Sampler content = new Raytracer(camera, world);
 
 		// Creates an image and iterates over all pixel positions inside the image.
 		var image = new Image(width, height);

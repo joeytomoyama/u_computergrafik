@@ -1,29 +1,29 @@
 package cgg.a11;
 
 import cgg.a11.materials.Material;
+import cgg.a11.materials.MaterialDiffuse;
 import cgg.a11.shapes.Group;
 import cgtools.Camera;
-// import cgtools.*;
 import cgtools.Color;
 import cgtools.Direction;
 import cgtools.Ray;
 import cgtools.Sampler;
 import cgtools.Vector;
 
-public record Raytracer(Camera camera, Group group) implements Sampler {
+public record Raytracer(Camera camera, World world) implements Sampler {
     
     public Color getColor(double x, double y) {
         Ray ray = camera.generateRay(x, y);
         
-        return radiance(ray, group, 10);
+        return radiance(ray, world, 10);
     }
 
-    public Color radiance(Ray ray, Group group, int depth) {
+    public Color radiance(Ray ray, World world, int depth) {
         // check for maximum recursion depth
-        if (depth == 0) return Vector.black;
+        if (depth == 0) return Vector.red;
 
         // intersect ray with scene
-        Hit hit = group.intersect(ray);
+        Hit hit = world.group().intersect(ray);
         if (hit == null) {
             return Vector.black; // return black or a background color
         }
@@ -38,14 +38,15 @@ public record Raytracer(Camera camera, Group group) implements Sampler {
 
 		Light light = new LightDirection(new Direction(1, 1, 0));
 
-		Color albedo = light.incomingIntensity(hit, group);
-		Color albedo2 = Vector.multiply(hit.material().albedo(hit), 0.2); // ???? - funktioniert aber.
+		Color albedo = (hit.material().getClass() == MaterialDiffuse.class) ?
+			Vector.add(light.incomingIntensity(hit, world.group()), material.albedo(hit)) :
+			material.albedo(hit);
 
         return Vector.multiply(
-            Vector.add(albedo, material.emission(hit), albedo2),
-            radiance(nextRay, group, --depth)
+            Vector.add(albedo, material.emission(hit)),
+            radiance(nextRay, world, depth - 1)
         );
-		// Color reflectedColor = Vector.multiply(material.albedo(hit), radiance(nextRay, group, depth - 1));
+		// Color reflectedColor = Vector.multiply(albedo, radiance(nextRay, world.group(), depth - 1));
     	// return Vector.add(material.emission(hit), reflectedColor);
     }
 }
