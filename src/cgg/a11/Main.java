@@ -58,8 +58,8 @@ public class Main {
 		// sceneList.add(new Plane(new Point(0, -1, 0), Vector.yAxis, 100, 100, new MaterialMirror(0)));
 		sceneList.add(new Plane(new Point(0, -1, 0), Vector.yAxis, 100, 100, new MaterialDiffuse(new Constant(Vector.gray))));
 		sceneList.add(new Sphere(new Point(-2, 0, 0), 1, new MaterialDiffuse(texture)));
-		// sceneList.add(new Sphere(new Point(-2, 0, 0), 1, new MaterialDiffuse(new Constant(Vector.green))));
-		sceneList.add(new Sphere(new Point(0, 0, 0), 0.9, new MaterialMirror(0)));
+		sceneList.add(new Sphere(new Point(0, 2, 0), 1, new MaterialDiffuse(new Constant(Vector.green))));
+		sceneList.add(new Sphere(new Point(0, 0, 0), 1, new MaterialMirror(0)));
 		sceneList.add(new Sphere(new Point(2, 0, 0), 1, new MaterialDiffuse(new PolkaTexture(Vector.black, Vector.red, 0.05))));
 		// sceneList.add(new Sphere(new Point(1, 0, 2), 1.4, new MaterialGlass()));
 
@@ -75,7 +75,7 @@ public class Main {
 
 		// Creates an image and iterates over all pixel positions inside the image.
 		var image = new Image(width, height);
-		image.sample(content, 9);
+		image.sample(content, 24);
 		
 		// Writes the image to disk.
 		image.write("doc/a11.png");

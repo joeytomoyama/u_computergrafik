@@ -18,7 +18,7 @@ public record LightDirection(Direction direction) implements Light {
 		}
 
 		// calculate the intensity of the light
-		Color intensity = Vector.multiply(hit.material().albedo(hit), Vector.dotProduct(hit.normal(), direction));
+		Color intensity = Vector.multiply(hit.material().albedo(hit), Vector.dotProduct(hit.normal(), direction)); // TODO: add light intensity
 		return intensity;
 	}
 	
