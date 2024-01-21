@@ -1,6 +1,8 @@
 package cgtools;
 
-public class Camera {
+import cgg.a12.Animatable;
+
+public class Camera implements Animatable {
 
     private double fov;
     private int width;
@@ -38,4 +40,9 @@ public class Camera {
         
         return new Ray(Matrix.multiply(transformation, position), Matrix.multiply(transformation, direction), 0.001, Double.POSITIVE_INFINITY);
     }
+
+	@Override
+	public void setTransformation(Matrix m) {
+		this.transformation = m;
+	}
 }

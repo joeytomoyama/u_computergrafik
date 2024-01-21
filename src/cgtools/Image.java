@@ -34,6 +34,10 @@ public class Image {
 	}
   }
 
+  public void reset() {
+	this.pixels = new double[3 * width * height];
+  }
+
 	/**
 	 * The Color of each pixel of the image is determined based on the {@link Sampler}.
 	 * @param content Sampler.

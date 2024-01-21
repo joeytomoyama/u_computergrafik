@@ -1,5 +1,7 @@
 package cgg.a12;
 
+import static cgtools.Vector.yAxis;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +24,10 @@ import cgtools.Vector;
 
 public class Main {
 
-	private static int width = 480;
-	private static int height = 270;
+	// private static int width = 480;
+	// private static int height = 270;
+	private static int width = 240;
+	private static int height = 135;
 	
 	public static void main(String[] args) {
 		System.out.println("start");
@@ -60,22 +64,29 @@ public class Main {
 		sceneList.add(new Sphere(new Point(0, 0, 0), 1, new MaterialMirror(0)));
 		sceneList.add(new Sphere(new Point(2, 0, 0), 1, new MaterialDiffuse(new PolkaTexture(Vector.black, Vector.red, 0.05))));
 		// sceneList.add(new Sphere(new Point(1, 0, 2), 1.4, new MaterialGlass()));
+		Group scene = new Group(sceneList);//, new Transformation(Matrix.translation(new Direction(0, 0, 0))));
 
 		// LIGHTS
 		List<Light> lights = new ArrayList<>();
-		lights.add(new LightDirection(new Direction(1, 1, 0)));
+		lights.add(new LightDirection(new Direction(1, 100, 0)));
+
+		// ANIMATIONS
+		List<Animator> animators = new ArrayList<>();
+		animators.add(new RotorLive(scene, yAxis, 0, 90));
+		// animators.add(new RotorLive(camera, yAxis, 0, 90));
 		
-		Group scene = new Group(sceneList);//, new Transformation(Matrix.translation(new Direction(0, 0, 0))));
-		World world = new World(scene, lights);
+		World world = new World(scene, lights, animators);
 
 		// Defines the contents of the image.
-		Sampler content = new Raytracer(camera, world);
+		// Sampler content = new Raytracer(camera, world);
 
-		// Creates an image and iterates over all pixel positions inside the image.
+		// // Creates an image and iterates over all pixel positions inside the image.
 		var image = new Image(width, height);
-		image.sample(content, 8);
+		// image.sample(content, 8);
 		
-		// Writes the image to disk.
-		image.write("doc/a12.png");
+		// // Writes the image to disk.
+		// image.write("doc/a12.png");
+
+		Animation.render(0, 1, 15, world, camera, image, 4, "doc/a12-animation");
 	}
 }

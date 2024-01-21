@@ -51,7 +51,6 @@ public class Group implements Shape, Animatable {
 
 	@Override
 	public void setTransformation(Matrix m) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'setTransformation'");
+		this.transformation = new Transformation(m);
 	}
 }
