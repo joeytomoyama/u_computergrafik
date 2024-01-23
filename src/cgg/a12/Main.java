@@ -79,7 +79,7 @@ public class Main {
 		double depthStart = 10;
 		double baseWidth = 4;
 
-		for (int i = 0; i > -2000; i-=10) {
+		for (int i = 0; i > -1000; i-=50) {
 			// sceneList.add(new Box(new Point(1, 2, 3), new Point(4, 5, 6), new MaterialDiffuse(new PolkaTexture(Vector.black, Vector.green, 0.05))));
 			var randomX = Random.random() * 50;
 			var posX = Random.random() > 0.5 ? randomX : randomX * -1;

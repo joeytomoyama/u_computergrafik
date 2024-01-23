@@ -4,3 +4,5 @@ build/
 *.class
 .gradle
 .settings
+
+# .vscode*
