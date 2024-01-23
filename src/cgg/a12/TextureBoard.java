@@ -3,7 +3,7 @@ package cgg.a12;
 import cgtools.Color;
 import cgtools.Sampler;
 
-public record BoardTexture(int n) implements Sampler {
+public record TextureBoard(int n) implements Sampler {
 
 	@Override
 	public Color getColor(double u, double v) {

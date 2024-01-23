@@ -37,8 +37,11 @@ public class Camera implements Animatable {
             -1 * ((this.width / 2) / Math.tan(this.fov / 2))
         );
         direction = Vector.normalize(direction);
-        
+
+		// var transformedDirection = new Transformation(transformation).transformRay()
         return new Ray(Matrix.multiply(transformation, position), Matrix.multiply(transformation, direction), 0.001, Double.POSITIVE_INFINITY);
+		// var ray = new Ray(Matrix.multiply(transformation, position), direction, 0.001, Double.POSITIVE_INFINITY);
+        // return new Transformation(transformation).transformRay(ray);
     }
 
 	@Override

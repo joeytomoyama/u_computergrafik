@@ -40,7 +40,7 @@ import cgtools.Vector;
 // 	}
 // }
 
-public record PolkaTexture(Color fgColor, Color bgColor, double radius) implements Sampler {
+public record TexturePolka(Color fgColor, Color bgColor, double radius) implements Sampler {
 
     @Override
     public Color getColor(double u, double v) {

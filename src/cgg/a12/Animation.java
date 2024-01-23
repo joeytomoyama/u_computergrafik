@@ -60,10 +60,10 @@ public class Animation {
 				.directory(new File(dir))
 				.start()
 				.waitFor();
-			// new ProcessBuilder("vlc", "video.mp4")
-			// 	.directory(new File(dir))
-			// 	.start()
-			// 	.waitFor();
+			new ProcessBuilder("open", "video.mp4")
+				.directory(new File(dir))
+				.start()
+				.waitFor();
 		} catch (InterruptedException | IOException e) {
 			System.err.println(e);
 		}
