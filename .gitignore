@@ -5,4 +5,5 @@ build/
 .gradle
 .settings
 
-# .vscode*
+.vscode*
+/doc/a12-animation/
